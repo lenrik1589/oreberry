@@ -1,13 +1,16 @@
 {
 	"variants": {
 		"age=0": {
-			"model": "oreberry:block/iron_berry_small"
+			"model": "oreberry:block/copper_berry_small"
 		},
 		"age=1": {
-			"model": "oreberry:block/iron_berry_medium"
+			"model": "oreberry:block/copper_berry_medium"
 		},
 		"age=2": {
-			"model": "oreberry:block/iron_berry_mature"
+			"model": "oreberry:block/copper_berry_big"
+		},
+		"age=3": {
+			"model": "oreberry:block/copper_berry_mature"
 		}
 	}
 }
