@@ -97,7 +97,7 @@ public class OreBerry extends PlantBlock {
 	}
 
 	protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-		return floor.isIn(BlockTags.BASE_STONE_OVERWORLD);
+		return !"sculk".equals(type)? floor.isIn(BlockTags.BASE_STONE_OVERWORLD) : floor.isOf(Blocks.SCULK);
 	}
 
 	@Override
@@ -124,7 +124,7 @@ public class OreBerry extends PlantBlock {
 	@Override
 	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
 		int i = state.get(age);
-		if (i < maxAge && random.nextInt(5) == 0 && world.getBaseLightLevel(pos.up(), 0) >= 9) {
+		if (i < maxAge && random.nextInt(5) == 0 && world.getBaseLightLevel(pos, 0) >= 5) {
 			BlockState blockState = state.with(age, i + 1);
 			world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
 			world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.create(blockState));
@@ -150,7 +150,7 @@ public class OreBerry extends PlantBlock {
 
 	@Override
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-		if (entity instanceof LivingEntity && entity.getType() != EntityType.BAT) {
+		if (entity instanceof LivingEntity && entity.getType() != EntityType.BAT && state.getOutlineShape(world, pos).getBoundingBox().offset(pos).intersects(entity.getBoundingBox())) {
 			entity.slowMovement(state, new Vec3d(0.8F, 0.75, 0.8F));
 			if (!world.isClient && state.get(age) > 0 && (entity.lastRenderX != entity.getX() || entity.lastRenderZ != entity.getZ())) {
 				double d = Math.abs(entity.getX() - entity.lastRenderX);

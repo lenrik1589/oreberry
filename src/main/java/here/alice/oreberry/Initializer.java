@@ -11,22 +11,22 @@ public class Initializer implements ModInitializer {
 	
 	public static final Logger LOGGER = LogManager.getLogger("OreBerry");
 
-	public static final OreBerry IRON_BERRY     = registerBerryBlock(OreBerry.create("iron", OreBerry.Placement.FLOOR, 3));
-	public static final OreBerry GOLD_BERRY     = registerBerryBlock(OreBerry.create("gold", OreBerry.Placement.CEILING, 2));
-	public static final OreBerry COPPER_BERRY   = registerBerryBlock(OreBerry.create("copper", OreBerry.Placement.SIDE, 4));
-	public static final OreBerry SKULK_BERRY    = registerBerryBlock(OreBerry.create("skulk", OreBerry.Placement.CEILING, 2));
-	public static final OreBerry AMETHYST_BERRY = registerBerryBlock(OreBerry.create("amethyst", OreBerry.Placement.FLOOR, 2));
-	public static final OreBerry QUARTZ_BERRY   = registerBerryBlock(OreBerry.create("quartz", OreBerry.Placement.FLOOR, 2));
-	public static final OreBerry DIAMOND_BERRY  = registerBerryBlock(OreBerry.create("diamond", OreBerry.Placement.FLOOR, 2));
-	public static final OreBerry EMERALD_BERRY  = registerBerryBlock(OreBerry.create("emerald", OreBerry.Placement.FLOOR, 2));
-	public static final OreBerry SCRAPS_BERRY   = registerBerryBlock(OreBerry.create("scraps", OreBerry.Placement.FLOOR, 2));
+	public static final OreBerry IRON_BERRY     = registerBerryBlock(OreBerry.create("iron", OreBerry.Placement.FLOOR, 2));
+	public static final OreBerry GOLD_BERRY     = registerBerryBlock(OreBerry.create("gold", OreBerry.Placement.CEILING, 1));
+	public static final OreBerry COPPER_BERRY   = registerBerryBlock(OreBerry.create("copper", OreBerry.Placement.SIDE, 3));
+	public static final OreBerry SCULK_BERRY    = registerBerryBlock(OreBerry.create("sculk", OreBerry.Placement.CEILING, 1));
+	public static final OreBerry AMETHYST_BERRY = registerBerryBlock(OreBerry.create("amethyst", OreBerry.Placement.FLOOR, 1));
+	public static final OreBerry QUARTZ_BERRY   = registerBerryBlock(OreBerry.create("quartz", OreBerry.Placement.FLOOR, 1));
+	public static final OreBerry DIAMOND_BERRY  = registerBerryBlock(OreBerry.create("diamond", OreBerry.Placement.FLOOR, 1));
+	public static final OreBerry EMERALD_BERRY  = registerBerryBlock(OreBerry.create("emerald", OreBerry.Placement.FLOOR, 1));
+	public static final OreBerry SCRAPS_BERRY   = registerBerryBlock(OreBerry.create("scraps", OreBerry.Placement.FLOOR, 1));
 
 	public static final FoodComponent ORE_BERRIES = new FoodComponent.Builder().hunger(2).alwaysEdible().snack().build();
 
 	public static final Item IRON_BERRIES     = registerBerriesItem(IRON_BERRY);
 	public static final Item GOLD_BERRIES     = registerBerriesItem(GOLD_BERRY);
 	public static final Item COPPER_BERRIES   = registerBerriesItem(COPPER_BERRY);
-	public static final Item SKULK_BERRIES    = registerBerriesItem(SKULK_BERRY);
+	public static final Item SCULK_BERRIES    = registerBerriesItem(SCULK_BERRY);
 	public static final Item AMETHYST_BERRIES = registerBerriesItem(AMETHYST_BERRY);
 	public static final Item QUARTZ_BERRIES   = registerBerriesItem(QUARTZ_BERRY);
 	public static final Item DIAMOND_BERRIES  = registerBerriesItem(DIAMOND_BERRY);
@@ -36,7 +36,7 @@ public class Initializer implements ModInitializer {
 	public static final Item IRON_BERRY_BUSH     = registerBerryBushItem(IRON_BERRY);
 	public static final Item GOLD_BERRY_BUSH     = registerBerryBushItem(GOLD_BERRY);
 	public static final Item COPPER_BERRY_BUSH   = registerBerryBushItem(COPPER_BERRY);
-	public static final Item SKULK_BERRY_BUSH    = registerBerryBushItem(SKULK_BERRY);
+	public static final Item SCULK_BERRY_BUSH    = registerBerryBushItem(SCULK_BERRY);
 	public static final Item AMETHYST_BERRY_BUSH = registerBerryBushItem(AMETHYST_BERRY);
 	public static final Item QUARTZ_BERRY_BUSH   = registerBerryBushItem(QUARTZ_BERRY);
 	public static final Item DIAMOND_BERRY_BUSH  = registerBerryBushItem(DIAMOND_BERRY);

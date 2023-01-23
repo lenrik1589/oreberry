@@ -19,8 +19,10 @@ public class OreBerryBushItem extends AliasedBlockItem {
 		BlockState blockState = this.getBlock().getPlacementState(context);
 		if(blockState == null)
 			return null;
-		blockState = blockState.with(OreBerry.FACING, context.getSide());
-		if(this.canPlace(context, blockState)) return blockState;
+		if(Direction.Type.HORIZONTAL.test(context.getSide())) {
+			blockState = blockState.with(OreBerry.FACING, context.getSide());
+			if (this.canPlace(context, blockState)) return blockState;
+		}
 		for(Direction direction : Direction.Type.HORIZONTAL){
 			if(direction.equals(context.getSide())) continue;
 			blockState = blockState.with(OreBerry.FACING, direction);
