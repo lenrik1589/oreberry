@@ -1,0 +1,83 @@
+plugins {
+	id 'maven-publish'
+	id 'fabric-loom' version '1.0-SNAPSHOT'
+	id 'io.github.juuxel.loom-quiltflower' version '1.+'
+	id 'org.jetbrains.kotlin.jvm' version '1.8.0'
+}
+
+archivesBaseName = project.archives_base_name
+version = project.mod_version + "+" + project.minecraft_version
+group = project.maven_group
+
+repositories {
+	maven { url 'https://jitpack.io' }
+	maven { url 'https://maven.terraformersmc.com/releases/' }
+	maven { url 'https://api.modrinth.com/maven' }
+	maven { url 'https://maven.quiltmc.org/repository/release/' }
+	maven { url 'https://maven.quiltmc.org/repository/snapshot/' }
+	mavenLocal()
+	mavenCentral()
+}
+
+dependencies {
+	// Fabric
+	minecraft "com.mojang:minecraft:$minecraft_version"
+	mappings "org.quiltmc:quilt-mappings:$minecraft_version+build.21:intermediary-v2"
+	modImplementation "net.fabricmc:fabric-loader:$fabric_version"
+	modImplementation "net.fabricmc:fabric-language-kotlin:1.9.0+kotlin.1.8.0"
+
+	// Mods
+	modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_api"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
+
+processResources {
+	def properties = [
+			version          : version,
+			minecraft_version: minecraft_version,
+			fabric_version   : fabric_version,
+			fabric_api       : fabric_api
+	]
+
+	properties.forEach((k, v) -> inputs.property(k, v.toString()))
+	filesMatching("fabric.mod.json") {
+		expand properties
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.encoding = "UTF-8"
+	it.options.release.set(17)
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+	withSourcesJar()
+}
+
+jar {
+	from("LICENSE") {
+		rename { String.valueOf("$archivesBaseName").toUpperCase() + "_${it}"}
+	}
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+		}
+	}
+
+	repositories {}
+}
+compileKotlin {
+	kotlinOptions {
+		jvmTarget = "1.8"
+	}
+}
+compileTestKotlin {
+	kotlinOptions {
+		jvmTarget = "1.8"
+	}
+}

@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "oreberry",
+	"version": "${version}",
+	"name": "Oreberry",
+	"description": "",
+	"authors": [
+		"Alice"
+	],
+	"contact": {
+		"repo": "https://github.com/lenrik1589/Oreberry"
+	},
+	"license": "MIT",
+	"icon": "assets/oreberry/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"here.alice.oreberry.client.ClientInitializer"
+		],
+		"main": [
+			"here.alice.oreberry.Initializer"
+		],
+		"server": [
+			"here.alice.oreberry.server.ServerInitializer"
+		]
+	},
+	"mixins": [
+		"oreberry.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.13",
+		"fabric": "*",
+		"minecraft": "1.19.2"
+	}
+}

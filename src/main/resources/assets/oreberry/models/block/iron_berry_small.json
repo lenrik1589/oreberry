@@ -1,0 +1,21 @@
+{
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"particle": "oreberry:block/iron_berry",
+		"plant": "oreberry:block/iron_berry_small"
+	},
+	"elements": [
+		{
+			"from": [ 6, 0, 3 ],
+			"to": [ 10, 10, 13 ],
+			"faces": {
+				"east": {
+					"uv": [ 0, 0, 16, 16 ], "texture": "#plant"
+				},
+				"west": {
+					"uv": [ 0, 0, 16, 16 ], "texture": "#plant"
+				}
+			}
+		}
+	]
+}

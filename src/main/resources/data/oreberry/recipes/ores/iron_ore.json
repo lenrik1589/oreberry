@@ -1,0 +1,17 @@
+{
+	"type": "crafting_shaped",
+	"pattern": [
+		"iii",
+		"iii",
+		"iii"
+	],
+	"key": {
+		"i": {
+			"item": "oreberry:iron_berries"
+		}
+	},
+	"result": {
+		"count": 1,
+		"item": "minecraft:raw_iron"
+	}
+}
